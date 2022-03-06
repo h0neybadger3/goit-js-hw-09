@@ -49,7 +49,7 @@ function updateClock() {
   const deltaTime = selectedDate - currentDate;
   const endtime = convertMs(deltaTime);
 
-  if (deltaTime === 1) {
+  if (deltaTime <= 1000) {
     clearInterval(timerId);
   }
 

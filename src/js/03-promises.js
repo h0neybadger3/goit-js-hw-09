@@ -11,6 +11,11 @@ function onBtnSubmit(e) {
   let step = Number(e.currentTarget.step.value);
   let amount = Number(e.currentTarget.amount.value);
 
+  if (delay < 0 || amount < 0 || step < 0) {
+    Notify.failure('Value cannot be negative');
+    return;
+  }
+
   for (let position = 1; position <= amount; position += 1) {
     createPromise(position, delay)
       .then(({ position, delay }) => {
